@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
     }
 
     signInButtonClick(): void  {
-        console.log(this.loginInfo)
+        if (this.loginInfo.userName.length > 0 && this.loginInfo.password.length) {
+            console.log(this.loginInfo)
+        }
     }
 }

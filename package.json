@@ -5,6 +5,7 @@
     "@angular/common": "^5.0.3",
     "@angular/compiler": "^5.0.3",
     "@angular/core": "^5.0.3",
+    "@angular/flex-layout": "5.0.0-beta.15",
     "@angular/forms": "^5.0.3",
     "@angular/material": "^5.0.3",
     "@angular/platform-browser": "^5.0.3",

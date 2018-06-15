@@ -1,11 +1,34 @@
-<form>
-    <mat-form-field>
-        <input matInput placeholder="Login" [(ngModel)]="loginInfo.userName" name="login">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="password" [(ngModel)]="loginInfo.password" name="password">
-    </mat-form-field>
-</form>
-<div>
-    <button mat-button (click)="signInButtonClick()" >Sign In</button>
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="center" fxFlexOffset="7%">
+        <mat-card fxFlex="40%">
+            <div fxLayout="row" fxLayoutAlign="center">
+                <div fxLayout="column">
+                    <div fxLayout="row">
+                        <mat-card-title>Reactive-Messenger</mat-card-title>
+                    </div>
+                    <div fxLayout="row">
+                        <mat-card-subtitle>Please sign in to enter</mat-card-subtitle>
+                    </div>
+                    <div fxLayout="row">
+                        <form>
+                            <mat-form-field>
+                                <input matInput placeholder="Login" [(ngModel)]="loginInfo.userName" name="login">
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Password" [(ngModel)]="loginInfo.password" name="password">
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div fxLayout="row">
+                        <div fxLayout="column">
+                            <button mat-raised-button (click)="signInButtonClick()" >Sign In</button>
+                        </div>
+                        <div fxLayout="column" fxFlexOffset="5px">
+                            <button mat-raised-button>Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
 </div>
