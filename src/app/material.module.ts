@@ -5,6 +5,6 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule} from "@angular/mate
     imports: [ MatButtonModule, MatInputModule, MatFormFieldModule ],
     exports: [ MatButtonModule, MatInputModule, MatFormFieldModule ]
 })
-export class MaterialModule {
+export class MaterialAppModule {
 
 }

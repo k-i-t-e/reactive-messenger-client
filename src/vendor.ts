@@ -7,3 +7,6 @@ import 'zone.js/dist/long-stack-trace-zone';
 import '@angular/platform-browser';
 
 import 'rxjs';
+
+import "@angular/material";
+import "@angular/material/prebuilt-themes/indigo-pink.css";
