@@ -1,10 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {LoginInfo} from "../../model/LoginInfo";
+import {AuthService} from "../../services/AuthService";
 
 @Component({
     selector: 'app-login',
     template: require('./login.component.html')
-    //styles: require('./login.component.css')
 })
 export class LoginComponent implements OnInit {
     loginInfo: LoginInfo = {
@@ -12,14 +12,14 @@ export class LoginComponent implements OnInit {
       password: ""
     };
 
-    constructor() {}
+    constructor(private authService: AuthService) {}
 
     ngOnInit(): void {
     }
 
     signInButtonClick(): void  {
         if (this.loginInfo.userName.length > 0 && this.loginInfo.password.length) {
-            console.log(this.loginInfo)
+            this.authService.login(this.loginInfo).subscribe(authInfo => console.log(authInfo))
         }
     }
 }
