@@ -7,15 +7,18 @@ import {LoginComponent} from "./auth/login/login.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialAppModule} from "./material.module";
 import {AuthService} from "./services/AuthService";
+import {MessengerComponent} from "./messenger/messenger.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
     imports:      [BrowserModule,
                    FormsModule,
                    BrowserAnimationsModule,
-                   MaterialAppModule
+                   MaterialAppModule,
+                   AppRoutingModule
                   ],
     providers:    [ AuthService ],
-    declarations: [ AppComponent, LoginComponent ],
+    declarations: [ AppComponent, LoginComponent, MessengerComponent ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule {}

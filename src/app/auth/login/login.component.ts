@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {LoginInfo} from "../../model/LoginInfo";
 import {AuthService} from "../../services/AuthService";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-login',
@@ -12,14 +13,20 @@ export class LoginComponent implements OnInit {
       password: ""
     };
 
-    constructor(private authService: AuthService) {}
+    constructor(private authService: AuthService, private router: Router) {}
 
     ngOnInit(): void {
+        this.authService.getCurrentUserObservable().subscribe(authInfo => {
+            console.log(authInfo);
+            if (authInfo) {
+                this.router.navigateByUrl('/messenger')
+            }
+        })
     }
 
     signInButtonClick(): void  {
         if (this.loginInfo.userName.length > 0 && this.loginInfo.password.length) {
-            this.authService.login(this.loginInfo).subscribe(authInfo => console.log(authInfo))
+            this.authService.login(this.loginInfo);
         }
     }
 }
