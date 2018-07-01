@@ -4,7 +4,7 @@ import {User} from "../model/AuthInfo";
 
 @Component({
   selector: 'app-contacts',
-  template: require('./contacts.component.html')
+  template: require('./contacts.component.html'),
 })
 export class ContactsComponent implements OnInit {
   constructor(private contactsService: ContactsService) {}

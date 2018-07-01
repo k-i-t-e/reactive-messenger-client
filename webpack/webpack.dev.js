@@ -37,6 +37,15 @@ module.exports = {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: ['ts-loader'] // TODO: add babel-loader?
+            },
+            {
+              test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+              use: ['file-loader']
+            },
+            {
+              test: /\.(scss)$/,
+              exclude: /node_modules/,
+              use: ['sass-loader', 'style-loader', 'css-loader']
             }
         ]
     },

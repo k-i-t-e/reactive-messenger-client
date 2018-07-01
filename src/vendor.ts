@@ -10,3 +10,4 @@ import 'rxjs';
 
 import "@angular/material";
 import "@angular/material/prebuilt-themes/indigo-pink.css";
+import 'style-loader!./main.css';
