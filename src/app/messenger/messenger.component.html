@@ -3,8 +3,15 @@
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
                 <div fxLayout="column" fxFlex="50%">
-                    <div fxFlex="100%" fxLayout="column" class="contacts">
-                        <h1>Here be contacts!</h1>
+                    <div class="contacts">
+                        <mat-tab-group dynamicHeight fxLayout="column">
+                            <mat-tab label="Contacts" fxLayout="column">
+                                <h1>Here be Contacts!</h1>
+                            </mat-tab>
+                            <mat-tab label="Dialogs" fxLayout="column">
+                                <h1>Here be Dialogs!</h1>
+                            </mat-tab>
+                        </mat-tab-group>
                     </div>
                 </div>
                 <div fxLayout="column" fxFlex="50%">
