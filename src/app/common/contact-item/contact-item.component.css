@@ -1,6 +1,7 @@
 .item-row {
-    height: 60px;
-    padding: 5px 0px;
+    height: 70px;
+    padding: 10px 0px;
+    margin-right: 24px;
     border-bottom: 1px solid #eee;
 }
 
@@ -11,4 +12,13 @@
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
+}
+
+.avatar-container {
+    margin-right: 10px;
+}
+
+.message-preview {
+    font-size: 14px;
+    color: #999999;
 }
