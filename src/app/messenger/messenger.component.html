@@ -2,17 +2,15 @@
     <div fxLayout="column" fxFlex="70%">
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
-                <div fxLayout="column" fxFlex="50%">
-                    <div class="contacts">
-                        <mat-tab-group dynamicHeight fxLayout="column">
-                            <mat-tab label="Contacts" fxLayout="column">
-                                <app-contacts></app-contacts>
-                            </mat-tab>
-                            <mat-tab label="Dialogs" fxLayout="column">
-                                <h1>Here be Dialogs!</h1>
-                            </mat-tab>
-                        </mat-tab-group>
-                    </div>
+                <div class="contacts" fxLayout="column" fxFlex="50%">
+                    <mat-tab-group>
+                        <mat-tab label="Contacts">
+                            <app-contacts></app-contacts>
+                        </mat-tab>
+                        <mat-tab label="Dialogs">
+                            <h1>Here be Dialogs!</h1>
+                        </mat-tab>
+                    </mat-tab-group>
                 </div>
                 <div fxLayout="column" fxFlex="50%">
                     <h1>Here be chat!</h1>

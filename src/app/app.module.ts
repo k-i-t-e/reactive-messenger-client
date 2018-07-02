@@ -11,6 +11,7 @@ import {MessengerComponent} from "./messenger/messenger.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ContactsService} from "./services/contacts.service";
 import {ContactsComponent} from "./contacts/contacts.component";
+import {ContactItemComponent} from "./common/contact-item/contact-item.component";
 
 @NgModule({
     imports:      [
@@ -21,7 +22,7 @@ import {ContactsComponent} from "./contacts/contacts.component";
                    AppRoutingModule
                   ],
     providers:    [ AuthService, ContactsService ],
-    declarations: [ AppComponent, LoginComponent, MessengerComponent, ContactsComponent ],
+    declarations: [ AppComponent, LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule {}

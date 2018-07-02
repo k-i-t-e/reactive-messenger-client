@@ -1,11 +1,5 @@
-<div fxLayout="column" fxFlex="100%">
-    <div *ngFor="let contact of contacts" fxLayout="row">
-        <div>
-            <mat-icon svgIcon="thumbs-up"></mat-icon>
-            <i class="material-icons">face</i>
-        </div>
-        <div>
-            {{contact.id}}
-        </div>
+<div fxLayout="column">
+    <div *ngFor="let contact of contacts">
+        <app-contact-item [item]="contact"></app-contact-item>
     </div>
 </div>

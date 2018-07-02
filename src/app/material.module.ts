@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatChipsModule,
   MatDividerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
@@ -11,9 +11,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   imports: [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
-             MatTabsModule, MatIconModule ],
+             MatTabsModule, MatIconModule, MatChipsModule ],
   exports: [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
-             MatTabsModule, MatIconModule ]
+             MatTabsModule, MatIconModule, MatChipsModule ]
 })
 export class MaterialAppModule {
 }
