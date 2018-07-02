@@ -3,7 +3,7 @@
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
                 <div class="contacts" fxLayout="column" fxFlex="50%">
-                    <mat-tab-group>
+                    <mat-tab-group [dynamicHeight]="true">
                         <mat-tab label="Contacts">
                             <app-contacts></app-contacts>
                         </mat-tab>
