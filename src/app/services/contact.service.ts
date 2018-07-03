@@ -1,7 +1,7 @@
 import {Observable} from "rxjs";
 import {User} from "../model/AuthInfo";
 
-export class ContactsService {
+export class ContactService {
   getContacts(): Observable<User[]> {
     return Observable.of([
       { id: 1, userName: 'John Smith' },

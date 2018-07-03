@@ -9,9 +9,11 @@ import {MaterialAppModule} from "./material.module";
 import {AuthService} from "./services/auth.service";
 import {MessengerComponent} from "./messenger/messenger.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {ContactsService} from "./services/contacts.service";
 import {ContactsComponent} from "./contacts/contacts.component";
 import {ContactItemComponent} from "./common/contact-item/contact-item.component";
+import {ContactService} from "./services/contact.service";
+import {DialogService} from "./services/dialog.service";
+import {DialogsComponent} from "./dialogs/dialogs.component";
 
 @NgModule({
     imports:      [
@@ -21,8 +23,9 @@ import {ContactItemComponent} from "./common/contact-item/contact-item.component
                    MaterialAppModule,
                    AppRoutingModule
                   ],
-    providers:    [ AuthService, ContactsService ],
-    declarations: [ AppComponent, LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent ],
+    providers:    [ AuthService, ContactService, DialogService ],
+    declarations: [ AppComponent, LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
+                    DialogsComponent ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule {}

@@ -1,14 +1,22 @@
 class User {
-    id: Number;
-    userName: String
+  id: Number;
+  userName: String
 }
 
 class AuthInfo {
-    user: User;
-    token: String
+  user: User;
+  token: String
+}
+
+interface Contact {
+  id?: Number;
+  name: String;
+  status?: String;
+  date?: Date;
 }
 
 export {
-    AuthInfo,
-    User
+  AuthInfo,
+  User,
+  Contact
 }

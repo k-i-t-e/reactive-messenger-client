@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {Contact} from "../../model/AuthInfo";
 
 @Component({
   selector: 'app-contact-item',
@@ -6,5 +7,5 @@ import {Component, Input} from "@angular/core";
   styles:   [ require('./contact-item.component.css') ]
 })
 export class ContactItemComponent {
-  @Input() item: Object
+  @Input() item: Contact
 }
