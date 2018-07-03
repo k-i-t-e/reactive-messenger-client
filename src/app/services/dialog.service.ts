@@ -7,7 +7,7 @@ export class DialogService {
       {
         contact: "John Smith",
         lastMessage: {
-          text: "Here be last message",
+          text: "Here be last message. A very long-long message. A so long one.",
           from: "Nobody",
           to: "John Smith",
           date: new Date()

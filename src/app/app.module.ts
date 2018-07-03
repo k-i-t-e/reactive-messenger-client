@@ -14,6 +14,7 @@ import {ContactItemComponent} from "./common/contact-item/contact-item.component
 import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {DialogsComponent} from "./dialogs/dialogs.component";
+import {TruncatePipe} from "./common/truncate.pipe";
 
 @NgModule({
     imports:      [
@@ -24,8 +25,8 @@ import {DialogsComponent} from "./dialogs/dialogs.component";
                    AppRoutingModule
                   ],
     providers:    [ AuthService, ContactService, DialogService ],
-    declarations: [ AppComponent, LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
-                    DialogsComponent ],
+    declarations: [AppComponent, LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
+                   DialogsComponent, TruncatePipe ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule {}
