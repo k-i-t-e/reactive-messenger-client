@@ -5,8 +5,11 @@
         </div>
     </div>
     <div fxLayout="column" fxFlexAlign="center">
-        <div>
-            {{item.name}}
+        <div fxLayout="row">
+            <div>
+                {{item.name}}
+            </div>
+            <div class="message-preview">{{item.date | date:'shortTime'}}</div>
         </div>
         <div class="message-preview">{{item.status}}</div>
     </div>
