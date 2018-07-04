@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {LoginInfo} from "../model/LoginInfo";
 import {AuthInfo} from "../model/AuthInfo";
-import {Observable} from "rxjs/Observable";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs";
+import { of } from 'rxjs'
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,7 @@ export class AuthService {
     private userSubject: BehaviorSubject<AuthInfo> = new BehaviorSubject(null);
 
     login(info: LoginInfo): void {
-        Observable.of({user: {id: 1, userName: info.userName }, token: 'dasdasd'})
+        of({user: {id: 1, userName: info.userName }, token: 'dasdasd'})
             .subscribe(info => {
                 this.currentUser = info;
                 this.userSubject.next(info);

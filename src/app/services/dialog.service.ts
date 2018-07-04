@@ -1,9 +1,10 @@
-import {Observable} from "rxjs/Observable";
 import {Dialog} from "../model/Dialog";
+import {Observable} from "rxjs";
+import { of } from 'rxjs'
 
 export class DialogService {
   getDialogs(): Observable<Dialog[]> {
-    return Observable.of([
+    return of([
       {
         contact: "John Smith",
         lastMessage: {
