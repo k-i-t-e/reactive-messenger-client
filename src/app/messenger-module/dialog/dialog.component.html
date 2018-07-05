@@ -1,8 +1,32 @@
-<div fxLayout="row" class="header-container">
-    <div class="header" fxLayout="row" fxLayoutGap="20px">
-        <div fxLayout="column" class="round-shape" fxLayoutAlign="center center" fxFlexAlign="center">
-            <i class="material-icons">person_outline</i>
+<div fxLayout="column wrap">
+    <div fxLayout="row" class="header-container" fxFlex="59px">
+        <div class="block" fxLayout="row" fxLayoutGap="20px">
+            <div fxLayout="column" class="round-shape" fxLayoutAlign="center center" fxFlexAlign="center">
+                <i class="material-icons">person_outline</i>
+            </div>
+            <div fxLayout="column" fxFlexAlign="center">{{contact.name}}</div>
         </div>
-        <div fxLayout="column" fxFlexAlign="center">{{contact.name}}</div>
+    </div>
+    <div fxLayout="row" fxFlex="80%" fxLayoutAlign="center center">
+        <div class="block">
+            Here be messages
+        </div>
+    </div>
+    <div class="message-input-panel" fxLayout="row" fxFlex="70px">
+        <div fxLayout="row" class="block" fxFlex="100%">
+            <div fxLayout="column" fxFlex="90%">
+                <form>
+                    <mat-form-field fxFlex="100%">
+                    <textarea matInput placeholder="Type your message"
+                              cdkTextareaAutosize
+                              cdkAutosizeMinRows="2"
+                              cdkAutosizeMaxRows="4"></textarea>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div fxLayout="column" fxFlex="10%" fxFlexAlign="center">
+                <button mat-icon-button fxFlexAlign="center"><i class="material-icons">send</i></button>
+            </div>
+        </div>
     </div>
 </div>
