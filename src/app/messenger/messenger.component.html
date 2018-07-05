@@ -3,7 +3,7 @@
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
                 <div class="contacts" fxLayout="column" fxFlex="35%">
-                    <mat-tab-group [dynamicHeight]="true">
+                    <mat-tab-group [dynamicHeight]="true" style="margin-top: 10px">
                         <mat-tab label="Dialogs">
                             <app-dialogs (onDialogSelected)="contactSelected($event)"></app-dialogs>
                         </mat-tab>
@@ -14,7 +14,7 @@
                 </div>
                 <div fxLayout="column" fxFlex="65%">
                     <div *ngIf="selectedContact; else dialogNotSelected" fxLayout="column" fxFlex="100%">
-                        <app-dialog style="margin-left: 24px" [contact]="selectedContact"></app-dialog>
+                        <app-dialog [contact]="selectedContact"></app-dialog>
                     </div>
                     <ng-template #dialogNotSelected>
                         <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center">

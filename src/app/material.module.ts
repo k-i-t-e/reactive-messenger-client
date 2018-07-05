@@ -5,16 +5,16 @@ import {
   MatDividerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
-  MatTabsModule
+  MatTabsModule, MatToolbarModule
 } from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
-const modules = [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
-                  MatTabsModule, MatIconModule, MatChipsModule ];
+const MODULES = [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule,
+                  MatDividerModule, MatTabsModule, MatIconModule, MatChipsModule, MatToolbarModule ];
 
 @NgModule({
-  imports: modules,
-  exports: modules
+  imports: MODULES,
+  exports: MODULES
 })
 export class MaterialAppModule {
 }

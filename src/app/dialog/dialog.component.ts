@@ -3,7 +3,8 @@ import {Contact} from "../model/AuthInfo";
 
 @Component({
   selector: 'app-dialog',
-  template: require('./dialog.component.html')
+  template: require('./dialog.component.html'),
+  styles:   [ require('./dialog.component.css') ]
 })
 export class DialogComponent implements OnInit {
   @Input() contact: Contact;
