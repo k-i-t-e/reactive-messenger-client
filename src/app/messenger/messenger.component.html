@@ -5,15 +5,22 @@
                 <div class="contacts" fxLayout="column" fxFlex="35%">
                     <mat-tab-group [dynamicHeight]="true">
                         <mat-tab label="Dialogs">
-                            <app-dialogs></app-dialogs>
+                            <app-dialogs (onDialogSelected)="contactSelected($event)"></app-dialogs>
                         </mat-tab>
                         <mat-tab label="Contacts">
-                            <app-contacts></app-contacts>
+                            <app-contacts (onContactSelected)="contactSelected($event)"></app-contacts>
                         </mat-tab>
                     </mat-tab-group>
                 </div>
                 <div fxLayout="column" fxFlex="65%">
-                    <h1 style="margin-left: 24px">Here be chat!</h1>
+                    <div *ngIf="selectedDialog; else dialogNotSelected" fxLayout="column" fxFlex="100%">
+                        <h1>Here be dialog with {{selectedDialog}}!</h1>
+                    </div>
+                    <ng-template #dialogNotSelected>
+                        <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center">
+                            <div class="dialog-placeholder">Please select a dialog or create a new one</div>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </mat-card>

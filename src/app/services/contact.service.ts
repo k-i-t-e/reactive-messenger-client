@@ -1,7 +1,9 @@
 import {Observable} from "rxjs";
 import { of } from 'rxjs'
 import {User} from "../model/AuthInfo";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class ContactService {
   getContacts(): Observable<User[]> {
     return of([

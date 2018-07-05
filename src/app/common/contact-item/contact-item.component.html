@@ -9,8 +9,8 @@
             <div>
                 {{item.name}}
             </div>
-            <div class="date" fxFlexAlign="center">{{item.date | date:'shortTime'}}</div>
+            <div *ngIf="item.date" class="date" fxFlexAlign="center">{{item.date | date:'shortTime'}}</div>
         </div>
-        <div class="message-preview">{{item.status | truncate : 53 }}</div>
+        <div *ngIf="item.status" class="message-preview">{{item.status | truncate : 53 }}</div>
     </div>
 </div>

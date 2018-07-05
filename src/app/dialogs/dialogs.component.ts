@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import {DialogService} from "../services/dialog.service";
 import {Contact} from "../model/AuthInfo";
 
@@ -7,6 +7,7 @@ import {Contact} from "../model/AuthInfo";
   template: require('./dialogs.component.html')
 })
 export class DialogsComponent implements OnInit {
+  @Output() onDialogSelected = new EventEmitter<Contact>();
   dialogs: Contact[] = [];
 
   constructor(private dialogService: DialogService) {
@@ -20,6 +21,12 @@ export class DialogsComponent implements OnInit {
         date: d.lastMessage.date
       }
     }))
+  }
+
+  dialogSelected(contact: Contact): String {
+    console.log(contact);
+    this.onDialogSelected.emit(contact);
+    return contact.name;
   }
 
 }
