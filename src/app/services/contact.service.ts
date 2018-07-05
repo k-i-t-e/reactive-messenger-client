@@ -7,7 +7,7 @@ import {Injectable} from "@angular/core";
 export class ContactService {
   getContacts(): Observable<User[]> {
     return of([
-      { id: 1, userName: 'John Smith' },
+      new User(1, 'John Smith' ),
       { id: 2, userName: 'John Doe' },
       { id: 3, userName: 'Charly Brown' },
     ])

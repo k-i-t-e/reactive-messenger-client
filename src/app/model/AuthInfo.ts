@@ -1,6 +1,5 @@
 class User {
-  id: Number;
-  userName: String
+  constructor(public id: Number, public userName: String) {}
 }
 
 class AuthInfo {

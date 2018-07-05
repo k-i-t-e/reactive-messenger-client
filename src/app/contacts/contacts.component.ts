@@ -19,7 +19,6 @@ export class ContactsComponent implements OnInit {
   }
 
   contactSelected(contact: Contact): void {
-    console.log(contact);
     this.onContactSelected.emit(contact);
   }
 }

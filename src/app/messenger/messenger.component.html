@@ -13,8 +13,8 @@
                     </mat-tab-group>
                 </div>
                 <div fxLayout="column" fxFlex="65%">
-                    <div *ngIf="selectedDialog; else dialogNotSelected" fxLayout="column" fxFlex="100%">
-                        <h1>Here be dialog with {{selectedDialog}}!</h1>
+                    <div *ngIf="selectedContact; else dialogNotSelected" fxLayout="column" fxFlex="100%">
+                        <app-dialog style="margin-left: 24px" [contact]="selectedContact"></app-dialog>
                     </div>
                     <ng-template #dialogNotSelected>
                         <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center">

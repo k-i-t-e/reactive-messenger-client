@@ -7,7 +7,7 @@ import {Contact} from "../model/AuthInfo";
   styles:   [ require('./messenger.component.css') ]
 })
 export class MessengerComponent implements OnInit {
-  selectedDialog: String = null;
+  selectedContact: Contact;
 
   constructor() {
   }
@@ -16,7 +16,6 @@ export class MessengerComponent implements OnInit {
   }
 
   contactSelected(contact: Contact): void {
-    console.log(contact.name);
-    this.selectedDialog = contact.name;
+    this.selectedContact = contact;
   }
 }

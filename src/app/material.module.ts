@@ -9,11 +9,12 @@ import {
 } from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
+const modules = [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
+                  MatTabsModule, MatIconModule, MatChipsModule ];
+
 @NgModule({
-  imports: [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
-             MatTabsModule, MatIconModule, MatChipsModule ],
-  exports: [ MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, FlexLayoutModule, MatDividerModule,
-             MatTabsModule, MatIconModule, MatChipsModule ]
+  imports: modules,
+  exports: modules
 })
 export class MaterialAppModule {
 }

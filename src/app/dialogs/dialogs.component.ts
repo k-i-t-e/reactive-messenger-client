@@ -23,10 +23,8 @@ export class DialogsComponent implements OnInit {
     }))
   }
 
-  dialogSelected(contact: Contact): String {
-    console.log(contact);
+  dialogSelected(contact: Contact): void {
     this.onDialogSelected.emit(contact);
-    return contact.name;
   }
 
 }
