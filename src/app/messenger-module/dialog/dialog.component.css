@@ -1,6 +1,6 @@
 .header-container {
     border-bottom: 1px solid #eee;
-    /*height: 59px;*/
+    height: 59px;
 }
 
 .block {
@@ -18,4 +18,20 @@
 
 .message-input-panel {
     border-top: 1px solid #eee;
+    height: 120px;
+}
+
+.HolyGrail {
+    display: flex;
+    min-height: 95vh;
+    flex-direction: column;
+}
+
+.HolyGrail-body {
+    display: flex;
+    flex: 1;
+}
+
+.send-btn {
+    color: lightskyblue;
 }
