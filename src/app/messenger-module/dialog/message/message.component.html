@@ -1,5 +1,5 @@
 <div fxLayout="row" [fxLayoutAlign]="isMy ? 'end' : 'start'">
-    <div fxLayout="column">
+    <div fxLayout="column" class="message-box" [class.outcoming]="isMy">
         <div>
             {{message.from}}
         </div>
