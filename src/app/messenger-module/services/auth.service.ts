@@ -9,7 +9,7 @@ import { of } from 'rxjs'
 export class AuthService {
     constructor() {}
 
-    private currentUser: AuthInfo;
+    public currentUser: AuthInfo;
     private userSubject: BehaviorSubject<AuthInfo> = new BehaviorSubject(null);
 
     login(info: LoginInfo): void {
