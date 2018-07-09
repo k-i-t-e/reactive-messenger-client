@@ -1,6 +1,5 @@
 .message-box {
     border: 1px solid #eee;
-    border-radius: 10px;
     margin-top: 10px;
     padding: 5px;
     max-width: 400px;
@@ -8,10 +7,13 @@
 }
 
 .incoming {
+    border-radius: 0px 10px 10px 10px;
 }
 
 .outcoming {
-    background-color: rgba(53,199,0, 0.3);
+    color: white;
+    background-color: #42a5f5;
+    border-radius: 10px 10px 0 10px;
 }
 
 .sender {

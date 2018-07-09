@@ -1,5 +1,5 @@
 <div fxLayout="row" [fxLayoutAlign]="isMy ? 'end' : 'start'">
-    <div fxLayout="column" class="message-box" [class.outcoming]="isMy">
+    <div fxLayout="column" class="message-box" [ngClass]="isMy ? 'outcoming' : 'incoming'">
         <div class="sender">
             {{message.from}}
         </div>
