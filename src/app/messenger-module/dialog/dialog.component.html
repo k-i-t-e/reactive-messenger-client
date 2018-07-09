@@ -7,7 +7,7 @@
             <div fxLayout="column" fxFlexAlign="center">{{contact.name}}</div>
         </div>
     </header>
-    <div class="HolyGrail-body" fxLayout="row">
+    <div class="HolyGrail-body" fxLayout="row" #messagesContainer (scroll)="onContainerScroll()">
         <div class="block" fxLayout="column" fxFlex="100%">
             <app-message *ngFor="let message of messages" [message]="message" [isMy]="message.from === currentUserName"></app-message>
         </div>

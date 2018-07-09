@@ -29,7 +29,10 @@ export class DialogService {
     const userName = this.authService.currentUser.user.userName;
     for (let i = 0; i < 20; i++) {
       const even: boolean = i % 2 == 0;
-      messages.push(new Message(this.guid(), new Date(), even ? contact : userName, even ? userName : contact));
+      const messageCount: number = Math.floor(Math.random() * 6 + 1);
+      for (let i = 0; i < messageCount; i++) {
+        messages.push(new Message(this.guid(), new Date(), even ? contact : userName, even ? userName : contact));
+      }
     }
     return of(messages)
   }
