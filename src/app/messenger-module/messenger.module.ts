@@ -13,11 +13,12 @@ import {ContactService} from "./services/contact.service";
 import {DialogService} from "./services/dialog.service";
 import {MaterialAppModule} from "../material.module";
 import {MessageComponent} from "./dialog/message/message.component";
+import {SearchComponent} from "./search/search.component";
 
 @NgModule({
   imports: [ CommonModule, FormsModule, MaterialAppModule ],
   declarations: [ LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
-                 DialogsComponent, TruncatePipe, DialogComponent, MessageComponent ],
+                 DialogsComponent, TruncatePipe, DialogComponent, MessageComponent, SearchComponent ],
   providers: [ AuthService, ContactService, DialogService ],
   exports: [ LoginComponent, MessengerComponent ]
 })

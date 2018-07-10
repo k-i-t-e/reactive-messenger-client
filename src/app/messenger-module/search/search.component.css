@@ -1,0 +1,17 @@
+.container > * {
+    width: 100%;
+}
+
+.container {
+    padding-right: 24px;
+}
+
+.search-form {
+    margin-bottom: 0;
+}
+
+.search-clear-btn {
+    font-size: 20px;
+    color: #aaaaaa;
+    margin-bottom: 7px;
+}

@@ -1,0 +1,12 @@
+<form class="search-form">
+    <mat-form-field fxFlex="row" class="container" floatLabel="auto">
+        <mat-label fxLayout="row" fxLayoutAlign="start center">
+            <i class="material-icons">search</i>
+            <span>Search</span>
+        </mat-label>
+        <input matInput [(ngModel)]="searchStr" name="search">
+        <button mat-button *ngIf="searchStr" matSuffix mat-icon-button aria-label="Clear" (click)="searchStr=''">
+            <i class="material-icons search-clear-btn">close</i>
+        </button>
+    </mat-form-field>
+</form>
