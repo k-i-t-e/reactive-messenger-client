@@ -8,6 +8,7 @@ import {Contact} from "../model/AuthInfo";
 })
 export class MessengerComponent implements OnInit {
   selectedContact: Contact;
+  searchStarted = false;
 
   constructor() {
   }
@@ -17,5 +18,10 @@ export class MessengerComponent implements OnInit {
 
   contactSelected(contact: Contact): void {
     this.selectedContact = contact;
+  }
+
+  onSearch(searchStarted: boolean): void {
+    this.searchStarted = searchStarted;
+    console.log(searchStarted)
   }
 }

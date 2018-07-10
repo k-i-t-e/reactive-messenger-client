@@ -4,9 +4,11 @@
             <i class="material-icons">search</i>
             <span>Search</span>
         </mat-label>
-        <input matInput [(ngModel)]="searchStr" name="search">
-        <button mat-button *ngIf="searchStr" matSuffix mat-icon-button aria-label="Clear" (click)="searchStr=''">
+        <input matInput [(ngModel)]="searchStr" name="search" (keyup)="doSearch()">
+        <button mat-button *ngIf="searchStr" matSuffix mat-icon-button aria-label="Clear" (click)="clear()">
             <i class="material-icons search-clear-btn">close</i>
         </button>
     </mat-form-field>
 </form>
+<div *ngIf="results.length == 0 && searchStarted">No results</div>
+<div *ngIf="results.length > 0">Here be results</div>

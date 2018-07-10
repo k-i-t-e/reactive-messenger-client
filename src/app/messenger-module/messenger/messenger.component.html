@@ -3,8 +3,8 @@
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
                 <div class="contacts" fxLayout="column" fxFlex="400px">
-                    <app-search></app-search>
-                    <mat-tab-group [dynamicHeight]="true" style="margin-top: 10px; padding-right: 24px">
+                    <app-search (search)="onSearch($event)"></app-search>
+                    <mat-tab-group *ngIf="!searchStarted" [dynamicHeight]="true" style="margin-top: 10px; padding-right: 24px">
                         <mat-tab label="Dialogs">
                             <app-dialogs (onDialogSelected)="contactSelected($event)"></app-dialogs>
                         </mat-tab>
