@@ -36,7 +36,14 @@ module.exports = {
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                use: ['ts-loader'] // TODO: add babel-loader?
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['es2015'] // TODO: use preset-env?
+                        }
+                    },
+                    'ts-loader']
             },
             {
               test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
