@@ -1,5 +1,5 @@
 <div style="margin-top: 20px">
     <div *ngFor="let dialog of dialogs">
-        <app-contact-item [item]="dialog" (click)="dialogSelected(dialog)"></app-contact-item>
+        <app-contact-item [item]="dialog" [selected]="isSelected(dialog)" (click)="dialogSelected(dialog)"></app-contact-item>
     </div>
 </div>

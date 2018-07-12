@@ -3,13 +3,17 @@
         <mat-card>
             <div fxLayout="row" fxFlex="100%">
                 <div class="contacts" fxLayout="column" fxFlex="400px">
-                    <app-search (search)="onSearch($event)"></app-search>
+                    <app-search (search)="onSearch($event)"
+                                (onContactSelected)="contactSelected($event)"
+                                [selectedContact]="selectedContact"></app-search>
                     <mat-tab-group *ngIf="!searchStarted" [dynamicHeight]="true" style="margin-top: 10px; padding-right: 24px">
                         <mat-tab label="Dialogs">
-                            <app-dialogs (onDialogSelected)="contactSelected($event)"></app-dialogs>
+                            <app-dialogs (onDialogSelected)="contactSelected($event)"
+                                         [selectedContact]="selectedContact"></app-dialogs>
                         </mat-tab>
                         <mat-tab label="Contacts">
-                            <app-contacts (onContactSelected)="contactSelected($event)"></app-contacts>
+                            <app-contacts (onContactSelected)="contactSelected($event)"
+                                          [selectedContact]="selectedContact"></app-contacts>
                         </mat-tab>
                     </mat-tab-group>
                 </div>

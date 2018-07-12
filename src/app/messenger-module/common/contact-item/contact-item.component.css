@@ -1,7 +1,7 @@
 .item-row {
     height: 70px;
     border-bottom: 1px solid #eee;
-    padding: 10px 6px 10px 0px;
+    padding: 10px 6px 0px 10px;
 }
 
 .round-shape {
@@ -27,4 +27,8 @@
     color: #999999;
     position: absolute;
     right: 10px;
+}
+
+.selected {
+    background-color: rgba(3,169,244, 0.3);
 }

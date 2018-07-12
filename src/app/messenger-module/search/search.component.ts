@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from "@angular/core";
+import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {ContactService} from "../services/contact.service";
 import {Contact} from "../model/AuthInfo";
 import {map} from "rxjs/operators";
@@ -14,6 +14,9 @@ export class SearchComponent {
   localResults: Array<Contact> = [];
   searchStarted = false;
 
+  @Input() selectedContact: Contact;
+
+  @Output() onContactSelected = new EventEmitter<Contact>();
   @Output() search: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private contactService: ContactService) {}
@@ -50,9 +53,21 @@ export class SearchComponent {
     }
   }
 
-  addContact(contact: Contact): void {
+  addContact(contact: Contact, event: Event): void {
+    event.stopPropagation();
     this.contactService.addContact(contact).subscribe(ignored => {
       this.localResults = this.contactService.searchContacts(this.searchStr.trim()).map(u => u.toContact())
     })
+  }
+
+  contactSelected(contact: Contact) {
+    this.onContactSelected.emit(contact)
+  }
+
+  isSelected(contact: Contact): boolean {
+    if (this.selectedContact) {
+      return this.selectedContact.name === contact.name;
+    }
+    return false;
   }
 }

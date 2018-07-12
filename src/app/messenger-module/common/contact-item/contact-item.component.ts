@@ -9,4 +9,5 @@ import {Contact} from "../../model/AuthInfo";
 export class ContactItemComponent {
   @Input() item: Contact;
   @Input() hasContent: boolean = false;
+  @Input() selected = false
 }

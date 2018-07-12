@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {Contact} from "../model/AuthInfo";
 import {ContactService} from "../services/contact.service";
 
@@ -7,6 +7,8 @@ import {ContactService} from "../services/contact.service";
   template: require('./contacts.component.html'),
 })
 export class ContactsComponent implements OnInit {
+  @Input() selectedContact: Contact;
+
   @Output() onContactSelected = new EventEmitter<Contact>();
   contacts: Contact[] = [];
 
@@ -20,5 +22,12 @@ export class ContactsComponent implements OnInit {
 
   contactSelected(contact: Contact): void {
     this.onContactSelected.emit(contact);
+  }
+
+  isSelected(contact: Contact): boolean {
+    if (this.selectedContact) {
+      return this.selectedContact.name === contact.name;
+    }
+    return false;
   }
 }

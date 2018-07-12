@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {DialogService} from "../services/dialog.service";
 import {Contact} from "../model/AuthInfo";
 
@@ -7,6 +7,8 @@ import {Contact} from "../model/AuthInfo";
   template: require('./dialogs.component.html')
 })
 export class DialogsComponent implements OnInit {
+  @Input() selectedContact: Contact;
+
   @Output() onDialogSelected = new EventEmitter<Contact>();
   dialogs: Contact[] = [];
 
@@ -27,4 +29,10 @@ export class DialogsComponent implements OnInit {
     this.onDialogSelected.emit(contact);
   }
 
+  isSelected(contact: Contact): boolean {
+    if (this.selectedContact) {
+      return this.selectedContact.name === contact.name;
+    }
+    return false;
+  }
 }
