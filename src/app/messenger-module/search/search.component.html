@@ -10,5 +10,19 @@
         </button>
     </mat-form-field>
 </form>
-<div *ngIf="results.length == 0 && searchStarted">No results</div>
-<div *ngIf="results.length > 0">Here be results</div>
+<div class="container" *ngIf="searchStarted">
+    <div *ngIf="results.length == 0 && localResults.length == 0">No results</div>
+    <div *ngIf="localResults.length > 0">
+        <div *ngFor="let contact of localResults">
+            <app-contact-item [item]="contact"></app-contact-item>
+        </div>
+    </div>
+    <div *ngIf="results.length > 0">
+        <div class="global-search-divider" fxLayout="row" fxLayoutAlign="center center">
+            GLOBAL SEARCH
+        </div>
+        <div *ngFor="let contact of results">
+            <app-contact-item [item]="contact"></app-contact-item>
+        </div>
+    </div>
+</div>

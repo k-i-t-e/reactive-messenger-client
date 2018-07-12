@@ -7,8 +7,8 @@ import {Injectable} from "@angular/core";
 export class ContactService {
   private contacts: Array<User> = [
     new User(1, 'John Smith' ),
-    { id: 2, userName: 'John Doe' },
-    { id: 3, userName: 'Charly Brown' },
+    new User(2, 'John Doe' ),
+    new User(3, 'Charly Brown' )
   ];
 
   getContacts(): Observable<User[]> {
@@ -26,7 +26,11 @@ export class ContactService {
     return of(this.allUsers.filter(u => u.userName.toLowerCase().startsWith(searchStr.toLowerCase())))
   }
 
-  searchContacts(searchStr: string): Observable<Array<User>> {
-    return of(this.contacts.filter(u => u.userName.toLowerCase().startsWith(searchStr.toLowerCase())))
+  searchContacts(searchStr: string): Array<User> {
+    return this.contacts.filter(u =>
+      u.userName.toLowerCase()
+        .split(' ')
+        .filter(substr => substr.startsWith(searchStr.toLowerCase())).length > 0
+    )
   }
 }

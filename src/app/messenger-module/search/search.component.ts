@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from "@angular/core";
 import {ContactService} from "../services/contact.service";
 import {Contact} from "../model/AuthInfo";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-search',
@@ -10,6 +11,7 @@ import {Contact} from "../model/AuthInfo";
 export class SearchComponent {
   searchStr: string;
   results: Array<Contact> = [];
+  localResults: Array<Contact> = [];
   searchStarted = false;
 
   @Output() search: EventEmitter<boolean> = new EventEmitter();
@@ -33,6 +35,18 @@ export class SearchComponent {
       this.searchStarted = false;
       this.search.emit(false);
       this.results = [];
+    }
+
+    if (this.searchStarted) {
+      this.localResults = this.contactService.searchContacts(searchStr).map(u => u.toContact());
+
+      this.contactService.searchUsers(searchStr)
+        .pipe(
+          map(users => users.map(u => u.toContact()))
+        )
+        .subscribe(contacts => {
+          this.results = contacts
+        });
     }
   }
 }

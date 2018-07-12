@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {LoginInfo} from "../model/LoginInfo";
-import {AuthInfo} from "../model/AuthInfo";
+import {AuthInfo, User} from "../model/AuthInfo";
 import {Observable} from "rxjs";
 import {BehaviorSubject} from "rxjs";
 import { of } from 'rxjs'
@@ -13,7 +13,7 @@ export class AuthService {
     private userSubject: BehaviorSubject<AuthInfo> = new BehaviorSubject(null);
 
     login(info: LoginInfo): void {
-        of({user: {id: 1, userName: info.userName }, token: 'dasdasd'})
+        of({user: new User(1, info.userName), token: 'dasdasd'})
             .subscribe(info => {
                 this.currentUser = info;
                 this.userSubject.next(info);
