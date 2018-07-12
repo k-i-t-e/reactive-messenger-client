@@ -24,7 +24,7 @@ export class DialogService {
     ])
   }
 
-  getDialog(contact: String): Observable<Message[]> {
+  getDialog(contact: string): Observable<Message[]> {
     let messages: Array<Message> = [];
     const userName = this.authService.currentUser.user.userName;
     for (let i = 0; i < 20; i++) {

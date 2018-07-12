@@ -22,7 +22,9 @@
             GLOBAL SEARCH
         </div>
         <div *ngFor="let contact of results">
-            <app-contact-item [item]="contact"></app-contact-item>
+            <app-contact-item [item]="contact" [hasContent]="true">
+                <button mat-icon-button (click)="addContact(contact)"><i class="material-icons add_icon">person_add</i></button>
+            </app-contact-item>
         </div>
     </div>
 </div>

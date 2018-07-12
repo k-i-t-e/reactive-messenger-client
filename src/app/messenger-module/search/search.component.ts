@@ -49,4 +49,10 @@ export class SearchComponent {
         });
     }
   }
+
+  addContact(contact: Contact): void {
+    this.contactService.addContact(contact).subscribe(ignored => {
+      this.localResults = this.contactService.searchContacts(this.searchStr.trim()).map(u => u.toContact())
+    })
+  }
 }

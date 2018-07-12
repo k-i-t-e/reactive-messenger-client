@@ -1,5 +1,5 @@
 class User {
-  constructor(public id: Number, public userName: string) {}
+  constructor(public id: number, public userName: string) {}
 
   toContact(): Contact {
     return {
@@ -11,13 +11,13 @@ class User {
 
 class AuthInfo {
   user: User;
-  token: String
+  token: string
 }
 
 interface Contact {
-  id?: Number;
-  name: String;
-  status?: String;
+  id?: number;
+  name: string;
+  status?: string;
   date?: Date;
 }
 

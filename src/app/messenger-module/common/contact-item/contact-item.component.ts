@@ -7,5 +7,6 @@ import {Contact} from "../../model/AuthInfo";
   styles:   [ require('./contact-item.component.css') ]
 })
 export class ContactItemComponent {
-  @Input() item: Contact
+  @Input() item: Contact;
+  @Input() hasContent: boolean = false;
 }

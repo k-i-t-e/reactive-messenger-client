@@ -2,6 +2,7 @@ import {Observable} from "rxjs";
 import { of } from 'rxjs'
 import {Contact, User} from "../model/AuthInfo";
 import {Injectable} from "@angular/core";
+import {map, tap} from "rxjs/operators";
 
 @Injectable()
 export class ContactService {
@@ -32,5 +33,12 @@ export class ContactService {
         .split(' ')
         .filter(substr => substr.startsWith(searchStr.toLowerCase())).length > 0
     )
+  }
+
+  addContact(contact: Contact): Observable<User> {
+    return of(contact).pipe(
+      map(contact => new User(contact.id, contact.name)),
+      tap(user => this.contacts.push(user)),
+    );
   }
 }

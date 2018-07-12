@@ -1,24 +1,24 @@
 class Message {
-  constructor(text: String, date: Date, from: String, to: String) {
+  constructor(text: string, date: Date, from: string, to: string) {
     this.text = text;
     this.date = date;
     this.from = from;
     this.to = to;
   }
 
-  text: String;
+  text: string;
   date: Date;
-  from: String;
-  to:   String
+  from: string;
+  to:   string
 }
 
 class Dialog {
-  constructor(contact: String, lastMessage: Message) {
+  constructor(contact: string, lastMessage: Message) {
     this.contact = contact;
     this.lastMessage = lastMessage;
   }
 
-  contact: String;
+  contact: string;
   lastMessage: Message
 }
 

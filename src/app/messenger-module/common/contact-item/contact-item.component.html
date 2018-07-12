@@ -4,7 +4,7 @@
             <i class="material-icons">person_outline</i>
         </div>
     </div>
-    <div fxLayout="column" fxFlexAlign="center">
+    <div fxLayout="column" fxFlexAlign="center" fxFlex>
         <div fxLayout="row">
             <div>
                 {{item.name}}
@@ -12,5 +12,8 @@
             <div *ngIf="item.date" class="date" fxFlexAlign="center">{{item.date | date:'shortTime'}}</div>
         </div>
         <div *ngIf="item.status" class="message-preview">{{item.status | truncate : 53 }}</div>
+    </div>
+    <div #contentDiv fxLayout="column" fxLayoutAlign="center end" fxFlex="20px" *ngIf="hasContent">
+        <ng-content></ng-content>
     </div>
 </div>
