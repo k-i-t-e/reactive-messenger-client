@@ -24,7 +24,7 @@
         </div>
         <div *ngFor="let contact of results">
             <app-contact-item [item]="contact"
-                              [hasContent]="true"
+                              [hasContent]="!inContacts(contact)"
                               [selected]="isSelected(contact)"
                               (click)="contactSelected(contact)">
                 <button mat-icon-button (click)="addContact(contact, $event)"><i class="material-icons add_icon">person_add</i></button>

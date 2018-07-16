@@ -70,4 +70,8 @@ export class SearchComponent {
     }
     return false;
   }
+
+  inContacts(contact: Contact): boolean {
+    return this.localResults.filter(c => c.name === contact.name).length > 0
+  }
 }
