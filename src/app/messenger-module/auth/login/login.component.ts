@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {LoginInfo} from "../../model/LoginInfo";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {UNAUTHORIZED} from "../../model/AuthInfo";
 
 @Component({
     selector: 'app-login',
@@ -18,8 +19,10 @@ export class LoginComponent implements OnInit {
     ngOnInit(): void {
         this.authService.getCurrentUserObservable().subscribe(authInfo => {
             console.log(authInfo);
-            if (authInfo) {
+            if (authInfo && authInfo !== UNAUTHORIZED) {
                 this.router.navigateByUrl('/messenger')
+            } else if (authInfo === UNAUTHORIZED) {
+                console.log("Invalid username or password")
             }
         })
     }

@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialAppModule} from "./material.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {MessengerModule} from "./messenger-module/messenger.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports:      [
@@ -15,7 +16,8 @@ import {MessengerModule} from "./messenger-module/messenger.module";
                    BrowserAnimationsModule,
                    MaterialAppModule,
                    AppRoutingModule,
-                   MessengerModule
+                   MessengerModule,
+                   HttpClientModule
                   ],
     providers:    [ ],
     declarations: [ AppComponent ],

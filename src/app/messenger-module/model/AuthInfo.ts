@@ -11,8 +11,15 @@ class User {
 
 class AuthInfo {
   user: User;
-  token: string
+  token: string;
+
+  constructor(user: User, token: string) {
+    this.user = user;
+    this.token = token;
+  }
 }
+
+const UNAUTHORIZED = new AuthInfo(null, null);
 
 interface Contact {
   id?: number;
@@ -24,5 +31,6 @@ interface Contact {
 export {
   AuthInfo,
   User,
-  Contact
+  Contact,
+  UNAUTHORIZED
 }
