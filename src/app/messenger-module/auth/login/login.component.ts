@@ -9,16 +9,19 @@ import {UNAUTHORIZED} from "../../model/AuthInfo";
     template: require('./login.component.html')
 })
 export class LoginComponent implements OnInit {
-    loginInfo: LoginInfo = {
-      userName: "",
-      password: ""
-    };
+
+  loginInProgress = false;
+  loginInfo: LoginInfo = {
+    userName: "",
+    password: ""
+  };
 
     constructor(private authService: AuthService, private router: Router) {}
 
     ngOnInit(): void {
         this.authService.getCurrentUserObservable().subscribe(authInfo => {
             console.log(authInfo);
+            this.loginInProgress = false;
             if (authInfo && authInfo !== UNAUTHORIZED) {
                 this.router.navigateByUrl('/messenger')
             } else if (authInfo === UNAUTHORIZED) {
@@ -29,7 +32,8 @@ export class LoginComponent implements OnInit {
 
     signInButtonClick(): void  {
         if (this.loginInfo.userName.length > 0 && this.loginInfo.password.length) {
-            this.authService.login(this.loginInfo);
+          this.loginInProgress = true;
+          this.authService.login(this.loginInfo);
         }
     }
 }

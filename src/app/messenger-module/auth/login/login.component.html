@@ -15,7 +15,7 @@
                                 <input matInput placeholder="Login" [(ngModel)]="loginInfo.userName" name="login">
                             </mat-form-field>
                             <mat-form-field fxFlexOffset="5px">
-                                <input matInput placeholder="Password" [(ngModel)]="loginInfo.password" name="password">
+                                <input type="password" matInput placeholder="Password" [(ngModel)]="loginInfo.password" name="password">
                             </mat-form-field>
                         </form>
                     </div>
@@ -26,6 +26,9 @@
                         <div fxLayout="column" fxFlexOffset="5px">
                             <button mat-raised-button>Register</button>
                         </div>
+                    </div>
+                    <div fxLayout="row" style="margin-top: 10px" fxFlex="5px">
+                        <mat-progress-bar *ngIf="loginInProgress" mode="indeterminate"></mat-progress-bar>
                     </div>
                 </div>
             </div>
