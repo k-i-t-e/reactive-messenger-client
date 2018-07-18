@@ -3,17 +3,23 @@ import { of } from 'rxjs'
 import {Contact, User} from "../model/AuthInfo";
 import {Injectable} from "@angular/core";
 import {map, tap} from "rxjs/operators";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {AuthService} from "./auth.service";
+import {AUTH_API_ROOT_URL} from "./constants";
 
 @Injectable()
 export class ContactService {
-  private contacts: Array<User> = [
-    new User(1, 'John Smith' ),
-    new User(2, 'John Doe' ),
-    new User(3, 'Charly Brown' )
-  ];
+  constructor(private authService: AuthService, private http: HttpClient) {}
+
+  private contacts: Array<User> = [];
 
   getContacts(): Observable<User[]> {
-    return of(this.contacts)
+    return this.http.get<Result<Array<User>>>(AUTH_API_ROOT_URL + 'user/contacts', {
+      headers: new HttpHeaders({'X-Auth-Token': this.authService.currentUser.token})
+    }).pipe(
+      map(contacts => contacts.payload),
+      tap(contacts => this.contacts = contacts)
+    );
   };
 
   private allUsers: Array<User> = [
@@ -24,7 +30,13 @@ export class ContactService {
   ];
 
   searchUsers(searchStr: string): Observable<Array<User>> {
-    return of(this.allUsers.filter(u => u.userName.toLowerCase().startsWith(searchStr.toLowerCase())))
+    return this.http.get<Result<Array<User>>>(AUTH_API_ROOT_URL + 'users', {
+      headers: new HttpHeaders({'X-Auth-Token': this.authService.currentUser.token}),
+      params: new HttpParams().set('name', searchStr)
+    }).pipe(
+      map(result => result.payload)
+    );
+    //return of(this.allUsers.filter(u => u.userName.toLowerCase().startsWith(searchStr.toLowerCase())))
   }
 
   searchContacts(searchStr: string): Array<User> {

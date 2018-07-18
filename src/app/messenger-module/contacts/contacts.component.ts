@@ -10,14 +10,20 @@ export class ContactsComponent implements OnInit {
   @Input() selectedContact: Contact;
 
   @Output() onContactSelected = new EventEmitter<Contact>();
+
   contacts: Contact[] = [];
+  error: string;
 
   constructor(private contactsService: ContactService) {}
 
   ngOnInit(): void {
-    this.contactsService.getContacts().subscribe(contacts => this.contacts = contacts.map(c => {
-      return {id : c.id, name: c.userName}
-    }))
+    this.contactsService.getContacts().subscribe(
+      contacts => {
+        console.log(contacts);
+        this.contacts = contacts.map(c => c.toContact())
+      },
+      error => this.error = "Error: Couldn't fetch users"
+    )
   }
 
   contactSelected(contact: Contact): void {

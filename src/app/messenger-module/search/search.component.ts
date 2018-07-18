@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {ContactService} from "../services/contact.service";
-import {Contact} from "../model/AuthInfo";
+import {Contact, User} from "../model/AuthInfo";
 import {map} from "rxjs/operators";
 
 @Component({
@@ -43,13 +43,18 @@ export class SearchComponent {
     if (this.searchStarted) {
       this.localResults = this.contactService.searchContacts(searchStr).map(u => u.toContact());
 
-      this.contactService.searchUsers(searchStr)
-        .pipe(
-          map(users => users.map(u => u.toContact()))
-        )
-        .subscribe(contacts => {
-          this.results = contacts
-        });
+      if (searchStr.length > 2) {
+        this.contactService.searchUsers(searchStr)
+          .pipe(
+            map(users => {
+              console.log(users);
+              return users.map(u => User.toContact(u))
+            })
+          )
+          .subscribe(contacts => {
+            this.results = contacts
+          });
+      }
     }
   }
 

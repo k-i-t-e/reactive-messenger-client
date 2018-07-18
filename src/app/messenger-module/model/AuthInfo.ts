@@ -7,6 +7,13 @@ class User {
       name: this.userName
     }
   }
+
+  static toContact(user: User) : Contact {
+    return {
+      id: user.id,
+      name: user.userName
+    }
+  }
 }
 
 class AuthInfo {
