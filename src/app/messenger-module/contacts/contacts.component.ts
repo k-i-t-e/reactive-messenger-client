@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
-import {Contact} from "../model/AuthInfo";
+import {Contact, User} from "../model/AuthInfo";
 import {ContactService} from "../services/contact.service";
 
 @Component({
@@ -20,7 +20,7 @@ export class ContactsComponent implements OnInit {
     this.contactsService.getContacts().subscribe(
       contacts => {
         console.log(contacts);
-        this.contacts = contacts.map(c => c.toContact())
+        this.contacts = contacts.map(c => User.toContact(c))
       },
       error => this.error = "Error: Couldn't fetch users"
     )
