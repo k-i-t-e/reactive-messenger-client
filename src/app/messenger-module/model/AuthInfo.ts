@@ -1,13 +1,6 @@
 class User {
   constructor(public id: number, public userName: string) {}
 
-  toContact(): Contact {
-    return {
-      id: this.id,
-      name: this.userName
-    }
-  }
-
   static toContact(user: User) : Contact {
     return {
       id: user.id,

@@ -41,7 +41,7 @@ export class SearchComponent {
     }
 
     if (this.searchStarted) {
-      this.localResults = this.contactService.searchContacts(searchStr).map(u => u.toContact());
+      this.localResults = this.contactService.searchContacts(searchStr).map(u => User.toContact(u));
 
       if (searchStr.length > 2) {
         this.contactService.searchUsers(searchStr)
@@ -61,7 +61,7 @@ export class SearchComponent {
   addContact(contact: Contact, event: Event): void {
     event.stopPropagation();
     this.contactService.addContact(contact).subscribe(ignored => {
-      this.localResults = this.contactService.searchContacts(this.searchStr.trim()).map(u => u.toContact())
+      this.localResults = this.contactService.searchContacts(this.searchStr.trim()).map(u => User.toContact(u))
     })
   }
 
