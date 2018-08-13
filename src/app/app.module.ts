@@ -8,6 +8,7 @@ import {MaterialAppModule} from "./material.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {MessengerModule} from "./messenger-module/messenger.module";
 import {HttpClientModule} from "@angular/common/http";
+import {ScrollbarModule} from "ngx-scrollbar";
 
 @NgModule({
     imports:      [

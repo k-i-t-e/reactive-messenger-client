@@ -14,9 +14,10 @@ import {DialogService} from "./services/dialog.service";
 import {MaterialAppModule} from "../material.module";
 import {MessageComponent} from "./dialog/message/message.component";
 import {SearchComponent} from "./search/search.component";
+import {ScrollbarModule} from "ngx-scrollbar";
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, MaterialAppModule ],
+  imports: [ CommonModule, FormsModule, MaterialAppModule, ScrollbarModule ],
   declarations: [ LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
                  DialogsComponent, TruncatePipe, DialogComponent, MessageComponent, SearchComponent ],
   providers: [ AuthService, ContactService, DialogService ],

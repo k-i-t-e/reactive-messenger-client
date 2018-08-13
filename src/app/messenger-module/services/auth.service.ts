@@ -4,7 +4,7 @@ import {AuthInfo, UNAUTHORIZED, User} from "../model/AuthInfo";
 import {Observable} from "rxjs";
 import {BehaviorSubject} from "rxjs";
 import { of } from 'rxjs'
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError} from "rxjs/operators";
 import {AUTH_API_ROOT_URL} from "./constants";
 
@@ -31,14 +31,15 @@ export class AuthService {
           this.userSubject.next(UNAUTHORIZED);
         }
       });
-      /*of({user: new User(1, info.userName), token: 'dasdasd'})
-          .subscribe(info => {
-              this.currentUser = info;
-              this.userSubject.next(info);
-          })*/
   }
 
   getCurrentUserObservable(): Observable<AuthInfo> {
     return this.userSubject;
+  }
+
+  getAuthHeaders() {
+    return {
+      headers: new HttpHeaders({'X-Auth-Token': this.currentUser.token})
+    }
   }
 }

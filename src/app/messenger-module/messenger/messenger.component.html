@@ -1,32 +1,32 @@
 <div fxLayout="row" fxLayoutAlign="center">
     <div fxLayout="column" fxFlex="70%">
-        <mat-card>
-            <div fxLayout="row" fxFlex="100%">
-                <div class="contacts" fxLayout="column" fxFlex="400px">
+        <mat-card fxLayout="row" fxFlex="100%">
+            <div class="contacts" fxLayout="column" fxFlex="400px">
+                <div fxLayout="row" fxFlex="50px">
                     <app-search (search)="onSearch($event)"
                                 (onContactSelected)="contactSelected($event)"
-                                [selectedContact]="selectedContact"></app-search>
-                    <mat-tab-group *ngIf="!searchStarted" [dynamicHeight]="true" style="margin-top: 10px; padding-right: 24px">
-                        <mat-tab label="Dialogs">
-                            <app-dialogs (onDialogSelected)="contactSelected($event)"
-                                         [selectedContact]="selectedContact"></app-dialogs>
-                        </mat-tab>
-                        <mat-tab label="Contacts">
-                            <app-contacts (onContactSelected)="contactSelected($event)"
-                                          [selectedContact]="selectedContact"></app-contacts>
-                        </mat-tab>
-                    </mat-tab-group>
+                                [selectedContact]="selectedContact" fxFlex="100%"></app-search>
                 </div>
-                <div fxLayout="column" fxFlex>
-                    <div *ngIf="selectedContact; else dialogNotSelected" fxLayout="column" fxFlex="100%">
-                        <app-dialog [contact]="selectedContact"></app-dialog>
+                <mat-tab-group *ngIf="!searchStarted" [dynamicHeight]="true" style="padding-right: 24px" fxFlex>
+                    <mat-tab label="Dialogs">
+                        <app-dialogs (onDialogSelected)="contactSelected($event)"
+                                     [selectedContact]="selectedContact"></app-dialogs>
+                    </mat-tab>
+                    <mat-tab label="Contacts">
+                        <app-contacts (onContactSelected)="contactSelected($event)"
+                                      [selectedContact]="selectedContact"></app-contacts>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+            <div fxLayout="column" fxFlex>
+                <div *ngIf="selectedContact; else dialogNotSelected" fxLayout="column" fxFlex="100%">
+                    <app-dialog [contact]="selectedContact"></app-dialog>
+                </div>
+                <ng-template #dialogNotSelected>
+                    <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center">
+                        <div class="dialog-placeholder">Please select a dialog or create a new one</div>
                     </div>
-                    <ng-template #dialogNotSelected>
-                        <div fxLayout="column" fxFlex="100%" fxLayoutAlign="center center">
-                            <div class="dialog-placeholder">Please select a dialog or create a new one</div>
-                        </div>
-                    </ng-template>
-                </div>
+                </ng-template>
             </div>
         </mat-card>
     </div>

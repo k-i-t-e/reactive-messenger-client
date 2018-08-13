@@ -1,7 +1,9 @@
-<div style="margin-top: 20px">
+<div fxLayout="column">
     <div *ngIf="error">{{error}}</div>
-    <div *ngFor="let contact of contacts">
-        <app-contact-item [item]="contact" [selected]="isSelected(contact)"
-                          (click)="contactSelected(contact)"></app-contact-item>
-    </div>
+    <ng-scrollbar [autoHide]="true" fxFlex="100%">
+        <div *ngFor="let contact of contacts">
+            <app-contact-item [item]="contact" [selected]="isSelected(contact)"
+                              (click)="contactSelected(contact)"></app-contact-item>
+        </div>
+    </ng-scrollbar>
 </div>
