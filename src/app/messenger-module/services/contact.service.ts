@@ -50,4 +50,8 @@ export class ContactService {
         }),
       );
   }
+
+  deleteContact(contact: Contact): Observable<Boolean> {
+    return of(true)
+  }
 }

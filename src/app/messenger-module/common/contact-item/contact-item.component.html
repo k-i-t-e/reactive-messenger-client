@@ -1,4 +1,4 @@
-<div fxLayout="row" class="item-row" [class.selected]="selected">
+<div fxLayout="row" class="item-row" [class.selected]="selected" (mouseenter)="hovered = true" (mouseleave)="hovered = false">
     <div fxLayout="column" fxLayoutAlign="center" class="round-shape avatar-container" fxFlex="50px">
         <div fxLayout="row" fxLayoutAlign="center">
             <i class="material-icons">person_outline</i>
@@ -9,11 +9,11 @@
             <div>
                 {{item.name}}
             </div>
-            <div *ngIf="item.date" class="date" fxFlexAlign="center">{{item.date | date:'shortTime'}}</div>
+            <div *ngIf="item.date && !hovered" class="date" fxFlexAlign="center">{{item.date | date:'shortTime'}}</div>
         </div>
         <div *ngIf="item.status" class="message-preview">{{item.status | truncate : 53 }}</div>
     </div>
-    <div #contentDiv fxLayout="column" fxLayoutAlign="center end" fxFlex="20px" *ngIf="hasContent">
+    <div #contentDiv fxLayout="column" fxLayoutAlign="center end" fxFlex="20px" *ngIf="hasContent && hovered">
         <ng-content></ng-content>
     </div>
 </div>

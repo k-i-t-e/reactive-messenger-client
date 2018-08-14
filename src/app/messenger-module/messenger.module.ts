@@ -15,11 +15,14 @@ import {MaterialAppModule} from "../material.module";
 import {MessageComponent} from "./dialog/message/message.component";
 import {SearchComponent} from "./search/search.component";
 import {ScrollbarModule} from "ngx-scrollbar";
+import {ConfirmDialogComponent} from "./common/confirm-dialog/confirm-dialog.component";
 
 @NgModule({
   imports: [ CommonModule, FormsModule, MaterialAppModule, ScrollbarModule ],
   declarations: [ LoginComponent, MessengerComponent, ContactsComponent, ContactItemComponent,
-                 DialogsComponent, TruncatePipe, DialogComponent, MessageComponent, SearchComponent ],
+                  DialogsComponent, TruncatePipe, DialogComponent, MessageComponent, SearchComponent,
+                  ConfirmDialogComponent ],
+  entryComponents: [ ConfirmDialogComponent ],
   providers: [ AuthService, ContactService, DialogService ],
   exports: [ LoginComponent, MessengerComponent ]
 })

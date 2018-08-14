@@ -1,5 +1,9 @@
 <div style="margin-top: 20px">
     <div *ngFor="let dialog of dialogs">
-        <app-contact-item [item]="dialog" [selected]="isSelected(dialog)" (click)="dialogSelected(dialog)"></app-contact-item>
+        <app-contact-item [item]="dialog" [selected]="isSelected(dialog)" (click)="dialogSelected(dialog)" [hasContent]="true">
+            <button mat-icon-button (click)="onDeleteBtnClick(dialog, $event)">
+                <i class="material-icons close-button">close</i>
+            </button>
+        </app-contact-item>
     </div>
 </div>

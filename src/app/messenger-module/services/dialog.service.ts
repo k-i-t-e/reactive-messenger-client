@@ -6,6 +6,7 @@ import {AuthService} from "./auth.service";
 import {HttpClient} from "@angular/common/http";
 import {MESSENGER_API_ROOT_URL} from "./constants";
 import {map} from "rxjs/operators";
+import {Contact} from "../model/AuthInfo";
 
 class DialogVO {
   from: string;
@@ -48,5 +49,9 @@ export class DialogService {
         .substring(1);
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
+
+  deleteDialog(contact: Contact) {
+
   }
 }

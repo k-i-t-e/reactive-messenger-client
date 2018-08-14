@@ -3,7 +3,11 @@
     <ng-scrollbar [autoHide]="true" fxFlex="100%">
         <div *ngFor="let contact of contacts">
             <app-contact-item [item]="contact" [selected]="isSelected(contact)"
-                              (click)="contactSelected(contact)"></app-contact-item>
+                              (click)="contactSelected(contact)" [hasContent]="true">
+                <button mat-icon-button (click)="onDeleteBtnClick(contact, $event)">
+                    <i class="material-icons close-button">close</i>
+                </button>
+            </app-contact-item>
         </div>
     </ng-scrollbar>
 </div>

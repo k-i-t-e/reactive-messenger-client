@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {Contact, User} from "../model/AuthInfo";
 import {ContactService} from "../services/contact.service";
+import {MatDialog, MatDialogRef} from "@angular/material";
+import {ConfirmDialogComponent} from "../common/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-contacts',
@@ -14,7 +16,7 @@ export class ContactsComponent implements OnInit {
   contacts: Contact[] = [];
   error: string;
 
-  constructor(private contactsService: ContactService) {}
+  constructor(private contactsService: ContactService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.contactsService.getContacts().subscribe(
@@ -35,5 +37,19 @@ export class ContactsComponent implements OnInit {
       return this.selectedContact.name === contact.name;
     }
     return false;
+  }
+
+  onDeleteBtnClick(contact: Contact, e: Event): void {
+    e.stopPropagation();
+    let dialogRef:MatDialogRef<ConfirmDialogComponent, Boolean> = this.dialog.open(ConfirmDialogComponent, {
+      disableClose: false,
+      data: { title: 'Delete contact', text: `Are you sure, you want to delete ${contact.name} from contacts?` }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.contactsService.deleteContact(contact)
+      }
+    })
   }
 }
